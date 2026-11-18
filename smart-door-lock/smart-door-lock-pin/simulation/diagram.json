@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "author": "Smart Door Lock TKJ",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 40, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": 380.8,
+      "left": 351.2,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-membrane-keypad", "id": "keypad", "top": -30, "left": 370, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo", "top": 210, "left": 365, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led",
+      "top": 270,
+      "left": -130,
+      "attrs": { "color": "green", "label": "UNLOCK" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resistor",
+      "top": 250,
+      "left": -220,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 325, "left": 125, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "button",
+      "top": 390,
+      "left": -85,
+      "attrs": { "color": "blue", "label": "BUKA DARI DALAM", "bounce": "0" }
+    }
+  ],
+  "connections": [
+    [ "lcd:VCC", "uno:5V", "red", [] ],
+    [ "lcd:GND", "uno:GND.1", "black", [] ],
+    [ "lcd:SDA", "uno:A4", "green", [] ],
+    [ "lcd:SCL", "uno:A5", "blue", [] ],
+    [ "keypad:R1", "uno:2", "green", [] ],
+    [ "keypad:R2", "uno:3", "green", [] ],
+    [ "keypad:R3", "uno:4", "green", [] ],
+    [ "keypad:R4", "uno:5", "green", [] ],
+    [ "keypad:C1", "uno:6", "green", [] ],
+    [ "keypad:C2", "uno:7", "green", [] ],
+    [ "keypad:C3", "uno:8", "green", [] ],
+    [ "keypad:C4", "uno:9", "green", [] ],
+    [ "servo:PWM", "uno:10", "orange", [] ],
+    [ "servo:V+", "uno:5V", "red", [] ],
+    [ "servo:GND", "uno:GND.1", "black", [] ],
+    [ "buzzer:2", "uno:11", "purple", [] ],
+    [ "buzzer:1", "uno:GND.1", "black", [] ],
+    [ "uno:12", "resistor:1", "green", [] ],
+    [ "resistor:2", "led:A", "green", [] ],
+    [ "led:C", "uno:GND.1", "black", [] ],
+    [ "button:1.l", "uno:13", "green", [] ],
+    [ "button:2.l", "uno:GND.1", "black", [] ]
+  ],
+  "dependencies": {}
+}
